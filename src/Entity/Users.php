@@ -65,6 +65,11 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=150)
      */
     private $city;
+    
+    /**
+     * @ORM\Column(type="boolean", length=150)
+     */
+    private $is_verified = false;
 
     
 
@@ -224,6 +229,18 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     public function setCity(string $city): self
     {
         $this->city = $city;
+
+        return $this;
+    }
+
+    public function getIsVerified(): ?bool
+    {
+        return $this->is_verified;
+    }
+
+    public function setIsVerified(bool $is_verified): self
+    {
+        $this->is_verified = $is_verified;
 
         return $this;
     }
